@@ -1,5 +1,8 @@
 # Mini H Drive Robot
 
+<img width="3041" height="2268" alt="image" src="https://github.com/user-attachments/assets/6ae87de0-cb3b-4bcb-98d0-5bb4928abfdb" />
+
+
 A compact RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
 
 This repository documents the hardware, electronics, and firmware used to design and build the robot.  
