@@ -74,7 +74,11 @@ This repository documents the hardware, electronics, and firmware used to design
 
 ---
 
-## 📜 License
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.  
+## ⚖️ License
 
----
+This project’s **software, 3D models, and documentation** are released under the **Mini H Drive Robot License (MIT Non-Commercial Variant)**.  
+
+- ✅ Free for personal, educational, and research use  
+- ❌ Not allowed for resale, manufacturing, or commercial use without permission  
+
+See the [LICENSE](LICENSE) file for full details.
