@@ -74,11 +74,14 @@ This repository documents the hardware, electronics, and firmware used to design
 
 ---
 
-## ⚖️ License
+# Mini H Drive Robot
 
-This project’s **software, 3D models, and documentation** are released under the **Mini H Drive Robot License (MIT Non-Commercial Variant)**.  
+A compact RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
 
-- ✅ Free for personal, educational, and research use  
-- ❌ Not allowed for resale, manufacturing, or commercial use without permission  
+This repository contains everything needed to build the Mini H Drive robot, including:  
+- 📂 **Software** – Arduino/ESP32 firmware for motor control, wireless communication, and sensors  
+- 🖇️ **3D Models** – CAD files for the chassis, lift mechanism, and mounting components  
+- 📑 **Documentation** – Wiring diagrams, BOM, and build notes  
 
-See the [LICENSE](LICENSE) file for full details.
+Both the software and 3D models are covered under the project’s license (see [License](#-license)).  
+Would you like me to also add a /models folder structure suggestion in the README (e.g., STL/,
