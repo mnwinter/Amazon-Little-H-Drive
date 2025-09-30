@@ -1,6 +1,6 @@
 # Mini H Drive Robot
 
-A small RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
+A compact RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
 
 This repository documents the hardware, electronics, and firmware used to design and build the robot.  
 
@@ -9,27 +9,28 @@ This repository documents the hardware, electronics, and firmware used to design
 ## 📦 Bill of Materials (BOM)
 
 ### 🔹 Motors & Wheels
-- [MECCANIXITY 2pcs 200RPM Micro Gear Motor with Encoder, N20 DC12V Gearbox High Torque](https://www.amazon.com/dp/B09Q6Q6ZQB) – Amazon  
+- [MECCANIXITY 2pcs 200RPM Micro Gear Motor with Encoder, N20 DC12V Gearbox](https://www.amazon.com/dp/B0BHRY9L6Q) – Amazon  
 - [N20 DC Motor with Magnetic Encoder – 6V, 1:100 Gear Ratio (ID 4639)](https://www.adafruit.com/product/4639) – Adafruit  
-- [RecDec 4 Pack Mini Micro N20 Gear Motor Wheels (3mm Shaft, D-Hole Rubber Tire)](https://www.amazon.com/dp/B09H1NVQH5) – Amazon  
+- [RecDec 4 Pack Mini Micro N20 Gear Motor Wheels, 3mm Shaft D-Hole Rubber Tire](https://www.amazon.com/dp/B09H1NVQH5) – Amazon  
 - [DC 6V/12V Speed Reduction Gear Motor with T5 160mm Screw Thread Shaft + Brass Nut](https://www.amazon.com/dp/B09K3STYVQ) – Amazon  
 
 ### 🔹 Motor Drivers
 - [WWZMDiB 6pcs DRV8833 DC Motor Driver Controller Board, 1.5A Dual H-Bridge](https://www.amazon.com/dp/B0C5W3XYMC) – Amazon  
 
 ### 🔹 Microcontroller & Expansion
-- [Seeed Studio XIAO ESP32S3 (3pcs pack) – Wi-Fi, BLE 5.0, 8MB PSRAM, 8MB Flash](https://www.amazon.com/dp/B0C3ZRVFHK) – Amazon  
-- [Seeeduino XIAO Expansion Board – Rich peripherals, quick prototyping](https://www.amazon.com/dp/B09WZTXS2P) – Amazon  
-- [Seeed Studio XIAO Expansion Board (with Grove OLED, I²C, UART, Analog/Digital)](https://www.seeedstudio.com/Expansion-board-for-XIAO-Series-p-4869.html) – Seeed Studio  
+- [XIAO ESP32S3 (3PCS Pack – WiFi + BLE, 8MB PSRAM, 8MB Flash)](https://www.amazon.com/dp/B0C3ZRVFHK) – Amazon  
+- [Seeeduino XIAO Expansion Board – Quick Prototyping, CircuitPython Supported](https://www.amazon.com/dp/B09WZTXS2P) – Amazon  
+- [Seeed Studio XIAO Expansion Board (Grove OLED, UART, Analog/Digital)](https://www.seeedstudio.com/Expansion-board-for-XIAO-Series-p-4869.html) – Seeed Studio  
+- [Seeed Studio XIAO ESP32-S3 (3PCS)](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html) – Seeed Studio  
 
-### 🔹 Development & Documentation
-- [Seeed Studio – High-Performance Dev Board (XIAO ESP32S3)](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)  
+---
+
+## 📚 Documentation & References
+- [High-Performance Dev Board with Wi-Fi and BLE – XIAO ESP32S3](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html)  
 - [ESP32-S3 Datasheet (PDF)](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)  
 - [Getting Started with Seeed Studio XIAO ESP32S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)  
-- [Bluetooth for both versions – Seeed Wiki](https://wiki.seeedstudio.com/xiao_esp32s3_ble/)  
-- [Expansion Board Base for XIAO – Seeed Wiki](https://wiki.seeedstudio.com/xiao_expansion_board/)  
-
-### 🔹 Other Resources
+- [Bluetooth for both versions – Seeed Studio Wiki](https://wiki.seeedstudio.com/xiao_esp32s3_ble/)  
+- [Expansion Board Base for XIAO – Seeed Studio Wiki](https://wiki.seeedstudio.com/xiao_expansion_board/)  
 - [Global Robotics University](https://globalroboticsuniversity.com)  
 
 ---
@@ -59,14 +60,6 @@ This repository documents the hardware, electronics, and firmware used to design
 3. **Control**
    - Default firmware uses Bluetooth (BLE) for RC control.  
    - Wi-Fi/WebSocket control option is also available (see `/examples`).  
-
----
-
-## 📚 Documentation
-
-- Seeed Studio Wiki (ESP32-S3): [Getting Started](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)  
-- Datasheet: [ESP32-S3 PDF](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)  
-- DRV8833 Datasheet: [Texas Instruments DRV8833](https://www.ti.com/lit/ds/symlink/drv8833.pdf)  
 
 ---
 
