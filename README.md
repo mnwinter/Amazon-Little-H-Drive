@@ -1,87 +1,121 @@
-# Mini H Drive Robot
+# Lil H Drive Robot
 
 <img width="3041" height="2268" alt="image" src="https://github.com/user-attachments/assets/6ae87de0-cb3b-4bcb-98d0-5bb4928abfdb" />
 
+A compact autonomous/RC robot inspired by **Amazon Drive Units**, featuring a scissor-lift mechanism, N20 motors, and an **ESP32-S3 DevKit-C** microcontroller with Wi-Fi control and future BLE expansion.
 
-A compact RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
-
-This repository documents the hardware, electronics, and firmware used to design and build the robot.  
+This repository documents the hardware, electronics, firmware, and interface used to design and build the robot.
 
 ---
 
 ## 📦 Bill of Materials (BOM)
 
 ### 🔹 Motors & Wheels
-- [MECCANIXITY 2pcs 200RPM Micro Gear Motor with Encoder, N20 DC12V Gearbox](https://www.amazon.com/dp/B0BHRY9L6Q) – Amazon  
-- [N20 DC Motor with Magnetic Encoder – 6V, 1:100 Gear Ratio (ID 4639)](https://www.adafruit.com/product/4639) – Adafruit  
-- [RecDec 4 Pack Mini Micro N20 Gear Motor Wheels, 3mm Shaft D-Hole Rubber Tire](https://www.amazon.com/dp/B09H1NVQH5) – Amazon  
-- [DC 6V/12V Speed Reduction Gear Motor with T5 160mm Screw Thread Shaft + Brass Nut](https://www.amazon.com/dp/B09K3STYVQ) – Amazon  
+- MECCANIXITY 2 pcs 200 RPM Micro Gear Motor with Encoder, N20 DC 12 V Gearbox – Amazon  
+- N20 DC Motor with Magnetic Encoder – 6 V, 1:100 Gear Ratio (ID 4639) – Adafruit  
+- RecDec 4 Pack Mini Micro N20 Gear Motor Wheels (3 mm D-hole rubber tires) – Amazon  
+- DC 6 V / 12 V Speed-Reduction Gear Motor with T5 160 mm Screw Thread Shaft + Brass Nut – Amazon  
 
 ### 🔹 Motor Drivers
-- [WWZMDiB 6pcs DRV8833 DC Motor Driver Controller Board, 1.5A Dual H-Bridge](https://www.amazon.com/dp/B0C5W3XYMC) – Amazon  
+- WWZMDiB DRV8833 1.5 A Dual H-Bridge Motor Driver Boards (6 pcs pack) – Amazon  
 
-### 🔹 Microcontroller & Expansion
-- [XIAO ESP32S3 (3PCS Pack – WiFi + BLE, 8MB PSRAM, 8MB Flash)](https://www.amazon.com/dp/B0C3ZRVFHK) – Amazon  
-- [Seeeduino XIAO Expansion Board – Quick Prototyping, CircuitPython Supported](https://www.amazon.com/dp/B09WZTXS2P) – Amazon  
-- [Seeed Studio XIAO Expansion Board (Grove OLED, UART, Analog/Digital)](https://www.seeedstudio.com/Expansion-board-for-XIAO-Series-p-4869.html) – Seeed Studio  
-- [Seeed Studio XIAO ESP32-S3 (3PCS)](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html) – Seeed Studio  
+### 🔹 Microcontroller & Electronics
+- ESP32-S3 DevKit-C (N16R8 module, Wi-Fi + BLE, GPIO 48 RGB status LED)  
+- Optional: XIAO ESP32-S3 for compact builds or auxiliary modules  
+- LM2596 buck converter for 5 V and 3.3 V rails  
+- WS2812 RGB LED (optional status feedback)  
+- ToF (Laser Distance) sensor – front obstacle detection  
 
 ---
 
 ## 📚 Documentation & References
-- [High-Performance Dev Board with Wi-Fi and BLE – XIAO ESP32S3](https://www.seeedstudio.com/XIAO-ESP32S3-p-5627.html)  
 - [ESP32-S3 Datasheet (PDF)](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf)  
-- [Getting Started with Seeed Studio XIAO ESP32S3 Series](https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/)  
-- [Bluetooth for both versions – Seeed Studio Wiki](https://wiki.seeedstudio.com/xiao_esp32s3_ble/)  
-- [Expansion Board Base for XIAO – Seeed Studio Wiki](https://wiki.seeedstudio.com/xiao_expansion_board/)  
+- [ESP32 Arduino Core on GitHub](https://github.com/espressif/arduino-esp32)  
+- [DRV8833 Motor Driver Datasheet (TI)](https://www.ti.com/lit/ds/symlink/drv8833.pdf)  
+- [Adafruit N20 Gear Motor Guide](https://learn.adafruit.com/adafruit-micro-metal-gearmotor-encoders)  
 - [Global Robotics University](https://globalroboticsuniversity.com)  
 
 ---
 
 ## ⚙️ Features
-- Dual N20 gear motors for drive, controlled via DRV8833 H-bridge modules.  
-- Dedicated N20 screw-drive motor for scissor-lift actuation.  
-- XIAO ESP32-S3 microcontroller for wireless RC control (Bluetooth/Wi-Fi).  
-- Encoder support for precise drive tracking (future feature).  
-- Compact expansion board for prototyping and Grove connectivity.  
+- Dual N20 gear motors for drive (left / right / strafe) and one for the lift  
+- DRV8833 dual H-bridge drivers for independent motor channels  
+- ESP32-S3 DevKit-C Wi-Fi server with built-in web interface (no BLE required)  
+- REST-style API: `/api/drive?x=&y=&rot=&lift=` for remote commands  
+- Auto-stop timeout for safety if no commands are received  
+- Fully modular, split-file Arduino architecture  
 
 ---
 
 ## 🚀 Getting Started
 
-1. **Hardware Assembly**
-   - Mount N20 motors with wheels for the drive base.  
-   - Install lift mechanism with screw-drive N20 motor and brass nut.  
-   - Connect motors to DRV8833 drivers (1 driver for base, 1 driver for lift).  
-   - Wire drivers to XIAO ESP32-S3 through expansion board headers.  
+### 1️⃣ Hardware Assembly
+- Mount N20 motors and wheels to the base chassis.  
+- Assemble scissor lift mechanism and attach the lead-screw motor.  
+- Wire motors to DRV8833 boards (1 board for drive, 1 for lift).  
+- Connect drivers to the ESP32-S3 DevKit-C pins (as set in `config.h`).  
+- Connect status LED to GPIO 48 (if using).  
 
-2. **Software Setup**
-   - Install [Arduino IDE](https://www.arduino.cc/en/software) or [PlatformIO](https://platformio.org/).  
-   - Add Seeed Studio XIAO ESP32-S3 board package.  
-   - Upload firmware from `src/` folder in this repo.  
+### 2️⃣ Software Setup
+1. Install [Arduino IDE](https://www.arduino.cc/en/software).  
+2. Install the ESP32 Board Manager URL: https://dl.espressif.com/dl/package_esp32_index.json
 
-3. **Control**
-   - Default firmware uses Bluetooth (BLE) for RC control.  
-   - Wi-Fi/WebSocket control option is also available (see `/examples`).  
+3. Select **ESP32S3 Dev Module** and correct COM port.  
+4. Open `Lil_h_Drive.ino` and update `config.h` with your Wi-Fi SSID and password.  
+5. Upload the sketch and monitor serial output (115200 baud) for the IP address.  
+6. Open the IP in a browser — you’ll see the Lil H Drive web UI (sliders + D-pad).  
+
+---
+
+## 🌐 Web Interface
+
+Served directly from flash (PROGMEM), no SPIFFS/LittleFS required.  
+Endpoints:
+| Route | Description |
+|-------|--------------|
+| `/` | HTML UI page |
+| `/api/drive?x=&y=&rot=&lift=` | Motor control endpoint |
+| `/api/ping` | Connection check |
+
+Example request:
+GET /api/drive?x=0&y=80&rot=0&lift=20
+→ {"ok":true,"x":0,"y":80,"rot":0,"lift":20}
 
 ---
 
 ## 🛠️ Future Improvements
-- Integrate ToF/Ultrasonic sensors for obstacle avoidance.  
-- Encoder feedback for closed-loop drive control.  
-- ROS2 integration for advanced autonomy.  
-- Battery monitoring & charging circuit design.  
+- Encoder feedback for closed-loop motor control  
+- ToF/Ultrasonic sensors for obstacle avoidance  
+- Battery voltage telemetry in web UI  
+- ROS 2 bridge integration  
+- Optional BLE remote control mode  
 
 ---
 
-# Mini H Drive Robot
+## 📁 Repository Structure
+Lil_h_Drive/
+├─ Lil_h_Drive.ino
+├─ config.h
+├─ motor_control.cpp/.h
+├─ web_server.cpp/.h
+├─ ui_html.cpp/.h
+├─ models/ # (future) STL & Fusion 360 files
+├─ docs/ # Schematics, images, wiring PDFs
+├─ LICENSE
+└─ README.md
 
-A compact RC robot inspired by Amazon Drive Units, featuring a scissor-lift mechanism, N20 motors, and an ESP32-S3 microcontroller for wireless control and expansion.  
+---
 
-This repository contains everything needed to build the Mini H Drive robot, including:  
-- 📂 **Software** – Arduino/ESP32 firmware for motor control, wireless communication, and sensors  
-- 🖇️ **3D Models** – CAD files for the chassis, lift mechanism, and mounting components  
-- 📑 **Documentation** – Wiring diagrams, BOM, and build notes  
+## ⚖️ License
+**Lil H Drive — Personal Use License (No Resale)**  
+Free for personal projects and educational use.  
+Commercial use requires written permission from the author.  
+See [LICENSE](./LICENSE) for full terms.
 
-Both the software and 3D models are covered under the project’s license (see [License](#-license)).  
-Would you like me to also add a /models folder structure suggestion in the README (e.g., STL/,
+---
+
+### 🧑‍🔧 Author
+**Matthew Winter**  
+Automation Engineer | Robotics & Embedded Systems  
+
+---
