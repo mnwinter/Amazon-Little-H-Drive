@@ -11,20 +11,20 @@ This repository documents the hardware, electronics, firmware, and interface use
 ## 📦 Bill of Materials (BOM)
 
 ### 🔹 Motors & Wheels
-- MECCANIXITY 2 pcs 200 RPM Micro Gear Motor with Encoder, N20 DC 12 V Gearbox – Amazon  
-- N20 DC Motor with Magnetic Encoder – 6 V, 1:100 Gear Ratio (ID 4639) – Adafruit  
+- N20 DC Gear Motor, Magnetic Hall Encoder, All-Metal Gearbox, High Precision Reduction Motor, with L-Shaped 6PIN Connector
+- Threaded Shaft M4 55mm DC Gear Motor 3V 6V 12V Mini Electric Screw Reducer N20 All Metal Gears Motor (1, 12V 1000rpm) 
 - RecDec 4 Pack Mini Micro N20 Gear Motor Wheels (3 mm D-hole rubber tires) – Amazon  
-- DC 6 V / 12 V Speed-Reduction Gear Motor with T5 160 mm Screw Thread Shaft + Brass Nut – Amazon  
+
 
 ### 🔹 Motor Drivers
 - WWZMDiB DRV8833 1.5 A Dual H-Bridge Motor Driver Boards (6 pcs pack) – Amazon  
 
 ### 🔹 Microcontroller & Electronics
-- ESP32-S3 DevKit-C (N16R8 module, Wi-Fi + BLE, GPIO 48 RGB status LED)  
-- Optional: XIAO ESP32-S3 for compact builds or auxiliary modules  
-- LM2596 buck converter for 5 V and 3.3 V rails  
+- ESP32-S3 DevKit-C (N16R8 module, Wi-Fi + BLE, GPIO 48 RGB status LED)   
+- LM2596 buck converter for 10 V and 5 V rails  
 - WS2812 RGB LED (optional status feedback)  
-- ToF (Laser Distance) sensor – front obstacle detection  
+- ToF (Laser Distance) sensor – front obstacle detection
+- Rechargeable 12V 2600mAh Lithium ion Battery Pack with Charger
 
 ---
 
